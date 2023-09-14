@@ -1,0 +1,22 @@
+
+>>> import turtle
+>>> turtle.reset()
+>>> turtle.forward(100)
+>>> turtle.left(90)
+>>> turtle.left(-90)
+>>> turtle.left(-90)
+>>> turtle.forward(100)
+>>> turtle.left(-90)
+>>> turtle.forward(100)
+>>> turtle.left(-90)
+>>> turtle.forward(100)
+>>> turtle.left(30)
+>>> turtle.forward(50)
+>>> turtle.penup()
+>>> turtle.goto(30,100)
+>>> turtle.pendown()
+>>> turtle.forward(100)
+>>> turtle.circle(10)
+>>> turtle.circle(100)
+>>> turtle.undo()
+
