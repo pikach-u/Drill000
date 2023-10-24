@@ -23,4 +23,7 @@ def render():
 
 def remove_object(o):
     for layer in objects:
-        layer.remove(o)
+        if o in layer:
+            layer.remove(o)
+            return
+    raise ValueError('Exception: Empty List')
