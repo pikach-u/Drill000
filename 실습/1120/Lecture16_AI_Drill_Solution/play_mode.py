@@ -24,6 +24,7 @@ def handle_events():
 
 def init():
     global boy
+    global ball
 
     ground = Ground()
     game_world.add_object(ground, 0)
@@ -32,7 +33,7 @@ def init():
     game_world.add_object(boy, 2)
     game_world.add_collision_pair('boy:ball', boy, None)
 
-    for i in range(10):
+    for i in range(5):
         zombie = Zombie()
         game_world.add_object(zombie, 2)
         game_world.add_collision_pair('zombie:ball', zombie, None)
