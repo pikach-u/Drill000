@@ -284,12 +284,17 @@ class Boy:
 
     def update(self):
         self.state_machine.update()
+        self.x = clamp(50, self.x, server.background.w-50)
+        self.y = clamp(50, self.y, server.background.h-50)
 
     def handle_event(self, event):
         self.state_machine.handle_event(('INPUT', event))
 
     def draw(self):
-        sx, sy = get_canvas_width() // 2, get_canvas_height() // 2
+        # sx, sy = get_canvas_width() // 2, get_canvas_height() // 2    #소년의 위치를 화면 중앙에 고정
+        sx = self.x - server.background.window_left
+        sy = self.y - server.background.window_bottom
+
         self.image.clip_draw(int(self.frame) * 100, self.action * 100, 100, 100, sx, sy)
         pass
 
