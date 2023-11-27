@@ -1,5 +1,6 @@
 import pickle
 
+#game save를 위해 object와 collision 정보를 저장하면 된다
 objects = [[] for _ in range(4)]
 collision_pairs = {}
 
@@ -89,9 +90,12 @@ def all_objects():
 
 
 def save():
-    # fill here
-    pass
+    group = [objects, collision_pairs]  # 하나로 묶어서 저장해준다
+    with open('game.sav', 'wb') as f:  # 정보를 binary로 저장
+        pickle.dump(group, f)
 
 def load():
-    # fill here
-    pass
+    global objects, collision_pairs
+    with open('game.sav', 'rb') as f:
+        group = pickle.load(f)
+        objects, collision_pairs = group[0], group[1]
