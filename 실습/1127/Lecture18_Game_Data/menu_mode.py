@@ -48,7 +48,9 @@ def create_new_world():
     with open('zombie_data.json', 'r') as f: #파일을 오픈해서 f에 연결. close도 안해줘도 되고 파일이 존재해야 실행됨
         zombie_data_list = json.load(f)
         for item in zombie_data_list: #itemL dictionary data
-            zombie = Zombie(item['name'], item['x'], item['y'], item['size'])
+            # zombie = Zombie(item['name'], item['x'], item['y'], item['size'])
+            zombie = Zombie()
+            zombie.__dict__.update(item)
             game_world.add_object(zombie,1)
 
 
