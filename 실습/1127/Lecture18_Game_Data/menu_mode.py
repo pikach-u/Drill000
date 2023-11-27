@@ -40,9 +40,16 @@ def create_new_world():
     server.boy = Boy()
     game_world.add_object(server.boy, 1)
 
-    game_world.add_object(Zombie('zwi', 3800, 2560, 1.0), 1)
-    game_world.add_object(Zombie('jenny', 4000, 2560, 2.0), 1)
-    game_world.add_object(Zombie('jisoo', 5000, 2560, 0.5), 1)
+    # game_world.add_object(Zombie('zwi', 3800, 2560, 1.0), 1)
+    # game_world.add_object(Zombie('jenny', 4000, 2560, 2.0), 1)
+    # game_world.add_object(Zombie('jisoo', 5000, 2560, 0.5), 1)
+
+    # soft coding
+    with open('zombie_data.json', 'r') as f: #파일을 오픈해서 f에 연결. close도 안해줘도 되고 파일이 존재해야 실행됨
+        zombie_data_list = json.load(f)
+        for item in zombie_data_list: #itemL dictionary data
+            zombie = Zombie(item['name'], item['x'], item['y'], item['size'])
+            game_world.add_object(zombie,1)
 
 
 def load_saved_world():
