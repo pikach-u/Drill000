@@ -267,7 +267,7 @@ class StateMachine:
 
 
 class Boy:
-    def __init__(self):
+    def __init__(self): #초기화 할 정보랑 저장할/불러올 정보를 구분
         self.frame = 0
         self.action = 3
         self.image = load_image('animation_sheet.png')
@@ -279,13 +279,13 @@ class Boy:
         self.x, self.y = 4160, 2560
 
 
-    def __getstate__(self):
-        state = {'x': self.x, 'y': self.y}
-        return state
+    def __getstate__(self): #__로 내장함수 지정.
+        state = {'x': self.x, 'y': self.y}  #pickling 할 정보를 dict로 만들어준다
+        return state # 소년이 갖고 있는 변수 중 pickling 할 정보를 알려주기 위해
 
     def __setstate__(self, state):
-        self.__init__()
-        self.__dict__.update(state)
+        self.__init__() # 생성자를 한번 호출. 모든 기본값 생성
+        self.__dict__.update(state) #pickling 해서 저장된 정보만 update
 
 
     def update(self):

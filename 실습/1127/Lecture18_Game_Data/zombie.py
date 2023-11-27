@@ -49,12 +49,12 @@ class Zombie:
 
 
     def __getstate__(self):
-        state = {'name': self.name, 'x': self.x, 'y': self.y, 'size': self.size}
+        state = {'name': self.name, 'x': self.x, 'y': self.y, 'size': self.size} #필요한 정보 dict로 만들기
         return state
 
     def __setstate__(self, state):
         self.__init__()
-        self.__dict__.update(state)
+        self.__dict__.update(state) #pickle 한 정보만 update
 
 
 

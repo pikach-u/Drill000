@@ -14,11 +14,11 @@ class FixedBackground:
         self.h = self.image.h
 
     def __getstate__(self):
-        state = dict()
+        state = dict() #빈 dict 넘겨주기. 저장할 것이 없음
         return state
 
     def __setstate__(self, state):
-        self.__init__()
+        self.__init__() #생성자만 호출
 
 
     def draw(self):

@@ -40,6 +40,7 @@ def create_new_world():
     server.boy = Boy()
     game_world.add_object(server.boy, 1)
 
+    # hard coding
     # game_world.add_object(Zombie('zwi', 3800, 2560, 1.0), 1)
     # game_world.add_object(Zombie('jenny', 4000, 2560, 2.0), 1)
     # game_world.add_object(Zombie('jisoo', 5000, 2560, 0.5), 1)
@@ -55,8 +56,15 @@ def create_new_world():
 
 
 def load_saved_world():
-    # fill here
-    pass
+    server.boy, server.background = None, None
+    game_world.load()
+    for o in game_world.all_objects():
+        if isinstance(o, Boy):
+            server.boy = o
+        elif isinstance(o, Background):
+            server.background = o
+        if server.boy and server.background:
+            break
 
 
 def handle_events():
