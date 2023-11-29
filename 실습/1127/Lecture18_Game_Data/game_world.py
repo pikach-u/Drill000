@@ -89,8 +89,9 @@ def handle_collisions():
 
 
 def all_objects():
-    # fill here
-    pass
+    for layer in objects:
+        for o in layer:
+            yield o
 
 
 def save():
@@ -104,10 +105,10 @@ def load():
         group = pickle.load(f)
         objects, collision_pairs = group[0], group[1]
 
-    # 모든 객체들에 대해서 boy와 bg 객체를 찾아낸 후에 server에 연결 시켜줘야 됨
-    for layer in objects:
-        for o in layer:
-            if isinstance(o, Boy): # o가 Boy class의 객체면
-                server.boy = o
-            elif isinstance(o, Background):
-                server.background = o
+    # # 모든 객체들에 대해서 boy와 bg 객체를 찾아낸 후에 server에 연결 시켜줘야 됨
+    # for layer in objects:
+    #     for o in layer:
+    #         if isinstance(o, Boy): # o가 Boy class의 객체면
+    #             server.boy = o
+    #         elif isinstance(o, Background):
+    #             server.background = o
